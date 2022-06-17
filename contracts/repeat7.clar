@@ -1,5 +1,7 @@
 ;; REPEAT (7 bit max length)
 
+(define-constant max-len 127)  ;; (- (pow 2 7) 1))
+
 (define-private (min-num-integer-integer
                  (left int)
                  (right int)) 
