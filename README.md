@@ -21,9 +21,9 @@ Variations:
 
 * `(repeat-uint (n int) (item uint))`
 * `(repeat-bool (n int) (item bool))`
-* `(repeat-string (n int) (item (string-utf8 max-len))`
-* `(repeat-ascii (n int) (item (string-ascii max-len))`
-* `(repeat-buff (n int) (item (buff max-len))`
+* `(repeat-string (n int) (item (string-utf8 max-len)))`
+* `(repeat-ascii (n int) (item (string-ascii max-len)))`
+* `(repeat-buff (n int) (item (buff max-len)))`
 
 ### take 
 
