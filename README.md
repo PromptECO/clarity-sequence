@@ -35,9 +35,9 @@ The canonical variation takes `n` items from a list of integers, with signature:
 
 Variations:
 
-* `(take-bool (n int) (seq (list max-len bool))`
-* `(take-buff (n int) (seq (buffer max-len))`
-* `(take-string (n int) (seq (string-utf8 max-len))`
-* `(take-ascii (n int) (seq (string-ascii max-len))`
+* `(take-bool (n int) (seq (list max-len bool)))`
+* `(take-buff (n int) (seq (buffer max-len)))`
+* `(take-string (n int) (seq (string-utf8 max-len)))`
+* `(take-ascii (n int) (seq (string-ascii max-len)))`
 
 
