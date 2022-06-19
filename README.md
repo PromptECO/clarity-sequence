@@ -27,17 +27,33 @@ Variations:
 
 ### take 
 
-Returns the first `n` items in `seq`, or all items if there are fewer than n.
+Returns a sequence with the first `n` items in `seq`, or all items if there are fewer than n.
 
 The canonical variation takes `n` items from a list of integers, with signature:
 
 `(take (n int) (seq (list max-len int)))`
 
-Variations:
+Other variations:
 
+* `(take-uint (n int) (seq (list max-len uint)))`
 * `(take-bool (n int) (seq (list max-len bool)))`
 * `(take-buff (n int) (seq (buffer max-len)))`
 * `(take-string (n int) (seq (string-utf8 max-len)))`
 * `(take-ascii (n int) (seq (string-ascii max-len)))`
 
+### drop
+
+Returns a sequence with all but the first n items in seq.
+
+The canonical version drops `n` items from a list of integers, with signature:
+
+`(take (n int) (seq (list max-len int)))`
+
+Other variations:
+
+* `(drop-uint (n int) (seq (list max-len uint)))`
+* `(drop-bool (n int) (seq (list max-len bool)))`
+* `(drop-buff (n int) (seq (buffer max-len)))`
+* `(drop-string (n int) (seq (string-utf8 max-len)))`
+* `(drop-ascii (n int) (seq (string-ascii max-len)))`
 
