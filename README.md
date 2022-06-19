@@ -47,7 +47,7 @@ Returns a sequence with all but the first n items in seq.
 
 The canonical version drops `n` items from a list of integers, with signature:
 
-`(take (n int) (seq (list max-len int)))`
+`(drop (n int) (seq (list max-len int)))`
 
 Other variations:
 
