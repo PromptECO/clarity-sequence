@@ -99,8 +99,9 @@
   (map unwrap-panic-
     (filter is-some-
       (map element-at-
-        (repeat7b-list (check-type-integer (- (len seq) n))
-                 seq)
+        (repeat7b-list (check-type-integer1 
+                         (- (check-type-integer (to-int (len seq))) n))
+                       seq)
         (range-1-integer-integer
           (min-num-integer-integer n max-len)
           (check-type-integer (to-int (len seq)))))))))
