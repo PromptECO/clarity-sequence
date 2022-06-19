@@ -28,26 +28,12 @@
         (unwrap-panic (element-at l u0)))))
      u128)))))
 
-(define-private (step-list1
-                 (d int)
-                 (l (list 128 int)))
- (let ((n1 (to-int (len l))))
-  (if (is-eq 0 (/ d n1)) l
-   (unwrap-panic
-    (as-max-len?
-     (if (> d 0)
-      (concat l l)
-      (append l
-       (+ n1
-        (unwrap-panic (element-at l u0)))))
-     u128)))))
-
 (define-private (range-1-integer-integer
                  (lo int)
                  (hi int))
  (let ((d (- hi lo)))
   (fold step-list
-   (fold step-list1 (list d d d d d d d) (list (- d)))
+   (fold step-list (list d d d d d d d) (list (- d)))
    (list lo))))
 
 (define-private (unwrap-panic-
