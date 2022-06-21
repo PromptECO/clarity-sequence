@@ -57,3 +57,18 @@ Other variations:
 * `(drop-string (n int) (seq (string-utf8 max-len)))`
 * `(drop-ascii (n int) (seq (string-ascii max-len)))`
 
+### distinct 
+
+Returns a sequence without duplicate items.
+
+The canonical version removes duplicate items from a list of integers:
+
+`(distinct (seq (list max-len int)))`
+
+Other variations:
+
+* `(distinct-uint (seq (list max-len uint)))`
+* `(distinct-bool (seq (list max-len bool)))`
+* `(distinct-buff (seq (buffer max-len)))`
+* `(distinct-string (seq (string-utf8 max-len)))`
+* `(distinct-ascii (seq (string-ascii max-len)))`
