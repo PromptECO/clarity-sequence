@@ -81,6 +81,12 @@ The canonical version reverses a list of integers:
 
 `(reverse (seq (list max-len int)))`
 
+Example:
+
+`(reverse (list 1 2 3))`
+=>
+`(3 2 1)`
+
 Other variations:
 
 * `(reverse-uint (seq (list max-len uint)))`
