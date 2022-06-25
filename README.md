@@ -15,7 +15,9 @@ Returns a list with `item` repeated `n` times, limited by the max sequence lengt
 
 The canonical variation repeats an integer `n` times, with signature:
 
-`(repeat (n int) (item int))`
+```clarity
+(repeat (n int) (item int))
+```
 
 Example:
 
@@ -37,7 +39,9 @@ Returns a sequence with the first `n` items in `seq`, or all items if there are 
 
 The canonical variation takes `n` items from a list of integers, with signature:
 
-`(take (n int) (seq (list max-len int)))`
+```clarity
+(take (n int) (seq (list max-len int)))
+```
 
 Example:
 
@@ -59,7 +63,9 @@ Returns a sequence with all but the first n items in seq.
 
 The canonical version drops `n` items from a list of integers, with signature:
 
-`(drop (n int) (seq (list max-len int)))`
+```clarity
+(drop (n int) (seq (list max-len int)))
+```
 
 Example:
 
@@ -81,7 +87,9 @@ Returns a sequence without duplicate items.
 
 The canonical version removes duplicate items from a list of integers:
 
-`(distinct (seq (list max-len int)))`
+```clarity
+(distinct (seq (list max-len int)))
+```
 
 Example:
 
@@ -103,7 +111,9 @@ Returns a sequence in reverse order.
 
 The canonical version reverses a list of integers:
 
-`(reverse (seq (list max-len int)))`
+```clarity
+(reverse (seq (list max-len int)))
+```
 
 Example:
 
