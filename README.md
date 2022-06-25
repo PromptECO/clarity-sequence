@@ -17,6 +17,10 @@ The canonical variation repeats an integer `n` times, with signature:
 
 `(repeat (n int) (item int))`
 
+Example:
+
+`(repeat 3 0)` => `(0 0 0)`
+
 Variations:
 
 * `(repeat-uint (n int) (item uint))`
@@ -32,6 +36,10 @@ Returns a sequence with the first `n` items in `seq`, or all items if there are 
 The canonical variation takes `n` items from a list of integers, with signature:
 
 `(take (n int) (seq (list max-len int)))`
+
+Example:
+
+`(take 3 (list 1 2 3 4 5))` => `(1 2 3)`
 
 Other variations:
 
@@ -49,6 +57,10 @@ The canonical version drops `n` items from a list of integers, with signature:
 
 `(drop (n int) (seq (list max-len int)))`
 
+Example:
+
+`(drop 3 (list 1 2 3 4 5))` => `(4 5)`
+
 Other variations:
 
 * `(drop-uint (n int) (seq (list max-len uint)))`
@@ -64,6 +76,10 @@ Returns a sequence without duplicate items.
 The canonical version removes duplicate items from a list of integers:
 
 `(distinct (seq (list max-len int)))`
+
+Example:
+
+`(distint (list 1 2 2 3 1 3))` => `(1 2 3)`
 
 Other variations:
 
@@ -83,9 +99,7 @@ The canonical version reverses a list of integers:
 
 Example:
 
-`(reverse (list 1 2 3))`
-=>
-`(3 2 1)`
+`(reverse (list 1 2 3))` => `(3 2 1)`
 
 Other variations:
 
