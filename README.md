@@ -72,3 +72,19 @@ Other variations:
 * `(distinct-buff (seq (buffer max-len)))`
 * `(distinct-string (seq (string-utf8 max-len)))`
 * `(distinct-ascii (seq (string-ascii max-len)))`
+
+### reverse 
+
+Returns a sequence in reverse order.
+
+The canonical version reverses a list of integers:
+
+`(reverse (seq (list max-len int)))`
+
+Other variations:
+
+* `(reverse-uint (seq (list max-len uint)))`
+* `(reverse-bool (seq (list max-len bool)))`
+* `(reverse-buff (seq (buffer max-len)))`
+* `(reverse-string (seq (string-utf8 max-len)))`
+* `(reverse-ascii (seq (string-ascii max-len)))`
