@@ -23,11 +23,13 @@ Example:
 
 Variations:
 
-* `(repeat-uint (n int) (item uint))`
-* `(repeat-bool (n int) (item bool))`
-* `(repeat-string (n int) (item (string-utf8 max-len)))`
-* `(repeat-ascii (n int) (item (string-ascii max-len)))`
-* `(repeat-buff (n int) (item (buff max-len)))`
+```clarity
+(repeat-uint (n int) (item uint))
+(repeat-bool (n int) (item bool))
+(repeat-string (n int) (item (string-utf8 max-len)))
+(repeat-ascii (n int) (item (string-ascii max-len)))
+(repeat-buff (n int) (item (buff max-len)))
+```
 
 ### take 
 
@@ -43,11 +45,13 @@ Example:
 
 Other variations:
 
-* `(take-uint (n int) (seq (list max-len uint)))`
-* `(take-bool (n int) (seq (list max-len bool)))`
-* `(take-buff (n int) (seq (buffer max-len)))`
-* `(take-string (n int) (seq (string-utf8 max-len)))`
-* `(take-ascii (n int) (seq (string-ascii max-len)))`
+```clarity
+(take-uint (n int) (seq (list max-len uint)))
+(take-bool (n int) (seq (list max-len bool)))
+(take-buff (n int) (seq (buffer max-len)))
+(take-string (n int) (seq (string-utf8 max-len)))
+(take-ascii (n int) (seq (string-ascii max-len)))
+```
 
 ### drop
 
@@ -63,11 +67,13 @@ Example:
 
 Other variations:
 
-* `(drop-uint (n int) (seq (list max-len uint)))`
-* `(drop-bool (n int) (seq (list max-len bool)))`
-* `(drop-buff (n int) (seq (buffer max-len)))`
-* `(drop-string (n int) (seq (string-utf8 max-len)))`
-* `(drop-ascii (n int) (seq (string-ascii max-len)))`
+```clarity
+(drop-uint (n int) (seq (list max-len uint)))
+(drop-bool (n int) (seq (list max-len bool)))
+(drop-buff (n int) (seq (buffer max-len)))
+(drop-string (n int) (seq (string-utf8 max-len)))
+(drop-ascii (n int) (seq (string-ascii max-len)))
+```
 
 ### distinct 
 
@@ -83,11 +89,13 @@ Example:
 
 Other variations:
 
-* `(distinct-uint (seq (list max-len uint)))`
-* `(distinct-bool (seq (list max-len bool)))`
-* `(distinct-buff (seq (buffer max-len)))`
-* `(distinct-string (seq (string-utf8 max-len)))`
-* `(distinct-ascii (seq (string-ascii max-len)))`
+```clarity
+(distinct-uint (seq (list max-len uint)))
+(distinct-bool (seq (list max-len bool)))
+(distinct-buff (seq (buffer max-len)))
+(distinct-string (seq (string-utf8 max-len)))
+(distinct-ascii (seq (string-ascii max-len)))
+```
 
 ### reverse 
 
@@ -103,8 +111,11 @@ Example:
 
 Other variations:
 
-* `(reverse-uint (seq (list max-len uint)))`
-* `(reverse-bool (seq (list max-len bool)))`
-* `(reverse-buff (seq (buffer max-len)))`
-* `(reverse-string (seq (string-utf8 max-len)))`
-* `(reverse-ascii (seq (string-ascii max-len)))`
+```clarity
+(reverse-uint (seq (list max-len uint)))
+(reverse-bool (seq (list max-len bool)))
+(reverse-buff (seq (buffer max-len)))
+(reverse-string (seq (string-utf8 max-len)))
+(reverse-ascii (seq (string-ascii max-len)))
+```
+
