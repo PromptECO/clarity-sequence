@@ -131,3 +131,6 @@ Other variations:
 (reverse-ascii (seq (string-ascii max-len)))
 ```
 
+Testnet:
+
+reverse7.clar https://explorer.stacks.co/txid/0x54d727c740aa47bb51d4a8aac7ec26c18315cc3c32e98803278835a5a649bc03?chain=testnet
