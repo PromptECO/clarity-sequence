@@ -174,9 +174,36 @@ Example:
 Other variations:
 
 ```clarity
-(keep-uint (seq (list 127 (optional uint))))
-(keep-bool (seq (list 127 (optional bool))))
-(keep-buff (seq (list 127 (optional (buff 127)))))
-(keep-string (seq (list 127 (optional (string-utf8 127)))))
-(keep-ascii (seq (list 127 (optional (string-ascii 127)))))
+(keep-uint (seq (list max-len (optional uint))))
+(keep-bool (seq (list max-len (optional bool))))
+(keep-buff (seq (list max-len (optional (buff 127)))))
+(keep-string (seq (list max-len (optional (string-utf8 127)))))
+(keep-ascii (seq (list max-len (optional (string-ascii 127)))))
 ```
+
+### partition
+
+Returns a list of sequences of up to n items each.
+
+The canonical version partitions a list of integers:
+
+```clarity
+(partition (seq (list max-len int)))
+```
+
+Example:
+
+`(partition 3 (list 1 2 3 4 5 6 7 8 9))` => `((1 2 3) (4 5 6) (7 8 9))`
+
+Other variations:
+
+```clarity
+(partition-uint (seq (list max-len (optional uint))))
+(partition-bool (seq (list max-len (optional bool)))
+(partition-buff (seq (list max-len (optional (buff 127)))))
+(partition-string (seq (list max-len (optional (string-utf8 127)))))
+(partition-ascii (seq (list max-len (optional (string-ascii 127)))))
+```
+
+
+
