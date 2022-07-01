@@ -135,3 +135,25 @@ Testnet:
 
 reverse7.clar  
 https://explorer.stacks.co/txid/0x54d727c740aa47bb51d4a8aac7ec26c18315cc3c32e98803278835a5a649bc03?chain=testnet
+
+### range
+
+Returns a sequence in the inclusive range of the arguments.
+
+The canonical version generates a list of integers:
+
+```clarity
+(range int int)
+```
+
+Example:
+
+`(range 1 9)` => `(1 2 3 4 5 6 7 8 9)`
+
+Other variations:
+
+```clarity
+(range-buff (first-item (buff 1)) (last-item (buff 1)))
+(range-ascii (first-item (string-ascii 1)) (last-item (string-ascii 1)))
+```
+
