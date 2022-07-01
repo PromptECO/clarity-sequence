@@ -157,3 +157,26 @@ Other variations:
 (range-ascii (first-item (string-ascii 1)) (last-item (string-ascii 1)))
 ```
 
+### keep-some
+
+Returns a list of `some` values from a list of options.
+
+The canonical version returns a list of integers:
+
+```clarity
+(keep-some (seq (list max-len int)))
+```
+
+Example:
+
+`(keep-some (list none (some 1) none (some 2) none)` => `(1 2)`
+
+Other variations:
+
+```clarity
+(keep-uint (seq (list 127 (optional uint))))
+(keep-bool (seq (list 127 (optional bool))))
+(keep-buff (seq (list 127 (optional (buff 127)))))
+(keep-string (seq (list 127 (optional (string-utf8 127)))))
+(keep-ascii (seq (list 127 (optional (string-ascii 127)))))
+```
