@@ -229,4 +229,23 @@ Other variations:
 (stagger-ascii (seq (list max-len (optional (string-ascii 127)))))
 ```
 
+### interpose
 
+Returns a list of the elements of `seq` separated by `sep`.
+
+The canonical version interposes an integer in a list of integers:
+
+```clarity
+(interpose (sep int) (seq (list max-len int)))
+```
+
+Example:
+
+`(interpose 0 (list 1 2 3))` => `(1 0 2 0 3)`
+
+Other variations:
+
+```clarity
+(interpose-uint (sep uint) (seq (list max-len (optional uint))))
+(interpose-bool (sep bool) (seq (list max-len (optional bool)))
+```
