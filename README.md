@@ -1,4 +1,4 @@
-# clarity-sequence
+# CLARITY-SEQUENCE
 
 Sequence library for Clarity.
 
@@ -11,6 +11,8 @@ represented in signatures with the placeholder `max-len`.
 
 Note: The clarity code has been generated from the files in the `src` directory but is not yet 
 optimized to minimize execution cost and code size. 
+
+## Documentation
 
 ### distinct 
 
