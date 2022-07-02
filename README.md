@@ -2,14 +2,13 @@
 
 Sequence library for Clarity.
 
+The Clarity files in `contracts` implements variations of a function for a specific sequence size.
 As Clarity is strictly typed, the library provides function variations supporting different datatypes.
-
-The Clarity files in `contracts` implements variations of a function for a specific sequence size, with 
-a numerical suffix reflecting the number of bits in the max sequence length. For example, the contract 
+Each file has a numerical suffix reflecting the number of bits in the max sequence length. For example, the contract 
 named `repeat7.clar` provides functions supporting a max sequence length of 127 = `(- (pow 2 7) 1)`
 represented in signatures with the placeholder `max-len`.
 
-Note: The clarity code has been generated from the files in the `src` directory but is not yet 
+The clarity code has been generated from the files in the `src` directory but is not yet 
 optimized to minimize execution cost and code size. 
 
 ## Documentation
