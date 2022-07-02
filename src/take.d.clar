@@ -1,5 +1,12 @@
 ;; TAKE
 
+(import {repeat: repeat-
+         range: range-})
+  
+(define-constant max-len (- (pow 2 7) 1))
+
+(define-type-alias Len (Int 0 max-len))
+
 (define (empty- seq)
   (if (is (Buffer max-len) seq)
     0x
