@@ -15,7 +15,7 @@
       (for ((i (range- skip end)))
         (unwrap-panic
           (element-at seq i)))
-      (empty seq))))
+      (list))))
 
 (define-read-only (slice 
                     (seq (List max-len Int))
