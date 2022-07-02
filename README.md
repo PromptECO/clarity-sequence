@@ -78,8 +78,8 @@ Example:
 Other variations:
 
 ```clarity
-(flatten (seq (list max-len (list max-len uint))))
-(flatten (seq (list max-len (list max-len bool))))
+(flatten-uint (seq (list max-len (list max-len uint))))
+(flatten-bool (seq (list max-len (list max-len bool))))
 ```
 
 ### interleave
