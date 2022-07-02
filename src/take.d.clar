@@ -11,10 +11,9 @@
 
 (define (take- (n Len) seq)
   (map unwrap-panic
-    (filter is-some
-      (map element-at 
-        (repeat- n seq)
-        (range- 0 (- (min n max-len) 1))))))
+    (map element-at 
+      (repeat- n seq)
+      (range- 0 (- (min n max-len) 1)))))
 
 (define-read-only (take 
                     (n Len) 
