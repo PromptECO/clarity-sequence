@@ -100,7 +100,7 @@ Other variations:
 
 ```clarity
 (interleave-uint (seq1 (list max-len uint)) (seq2 (list max-len uint)))
-(interleavee-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
+(interleave-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
 ```
 
 ### interpose
