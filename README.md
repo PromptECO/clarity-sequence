@@ -249,3 +249,29 @@ Other variations:
 (interpose-uint (sep uint) (seq (list max-len (optional uint))))
 (interpose-bool (sep bool) (seq (list max-len (optional bool)))
 ```
+
+### take-nth
+
+Returns a list of every nth element in a sequence.
+
+The canonical version extracts every nth element from a list of integers:
+
+```clarity
+(take-nth (step int) (seq (list max-len int)))
+```
+Example:
+
+`(take-nth 3 (list 1 2 3 4 5 6 7 8 9))` => `(1 4 7)`
+
+Other variations:
+
+```clarity
+(take-nth-uint (step int) (seq (list max-len (optional uint))))
+(take-nth-bool (step int) (seq (list max-len (optional bool)))
+(take-nth-buff (step int) (seq (list max-len (optional (buff 127)))))
+(take-nth-string (step int) (seq (list max-len (optional (string-utf8 127)))))
+(take-nth-ascii (step int) (seq (list max-len (optional (string-ascii 127)))))
+```
+
+
+
