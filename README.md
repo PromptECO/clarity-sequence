@@ -11,54 +11,6 @@ represented in signatures with the placeholder `max-len`.
 
 Note: This implementation is not yet optimized to minimize execution cost and code size. 
 
-### repeat
-
-Returns a list with `item` repeated `n` times, limited by the max sequence length.
-
-The canonical variation repeats an integer `n` times, with signature:
-
-```clarity
-(repeat (n int) (item int))
-```
-
-Example:
-
-`(repeat 3 0)` => `(0 0 0)`
-
-Variations:
-
-```clarity
-(repeat-uint (n int) (item uint))
-(repeat-bool (n int) (item bool))
-(repeat-string (n int) (item (string-utf8 max-len)))
-(repeat-ascii (n int) (item (string-ascii max-len)))
-(repeat-buff (n int) (item (buff max-len)))
-```
-
-### take 
-
-Returns a sequence with the first `n` items in `seq`, or all items if there are fewer than n.
-
-The canonical variation takes `n` items from a list of integers, with signature:
-
-```clarity
-(take (n int) (seq (list max-len int)))
-```
-
-Example:
-
-`(take 3 (list 1 2 3 4 5))` => `(1 2 3)`
-
-Other variations:
-
-```clarity
-(take-uint (n int) (seq (list max-len uint)))
-(take-bool (n int) (seq (list max-len bool)))
-(take-buff (n int) (seq (buffer max-len)))
-(take-string (n int) (seq (string-utf8 max-len)))
-(take-ascii (n int) (seq (string-ascii max-len)))
-```
-
 ### distinct 
 
 Returns a sequence without duplicate items.
@@ -107,54 +59,67 @@ Other variations:
 (drop-ascii (n int) (seq (string-ascii max-len)))
 ```
 
-### reverse 
+### flatten
 
-Returns a sequence in reverse order.
+Concatenates every item in a list.
 
-The canonical version reverses a list of integers:
+The canonical version concatenates a list of integer-lists:
 
 ```clarity
-(reverse (seq (list max-len int)))
+(flatten (seq (list max-len (list max-len int))))
 ```
 
 Example:
 
-`(reverse (list 1 2 3))` => `(3 2 1)`
+`(flatten (list (list 1 2 3) (list 4 5 6) (list 7 8 9)))` => `(1 2 3 4 5 6 7 8 9)`
 
 Other variations:
 
 ```clarity
-(reverse-uint (seq (list max-len uint)))
-(reverse-bool (seq (list max-len bool)))
-(reverse-buff (seq (buffer max-len)))
-(reverse-string (seq (string-utf8 max-len)))
-(reverse-ascii (seq (string-ascii max-len)))
+(flatten (seq (list max-len (list max-len uint))))
+(flatten (seq (list max-len (list max-len bool))))
 ```
 
-Testnet:
+### interleave
 
-reverse7.clar  
-https://explorer.stacks.co/txid/0x54d727c740aa47bb51d4a8aac7ec26c18315cc3c32e98803278835a5a649bc03?chain=testnet
+Returns a list interleaving the items in two sequences. 
 
-### range
-
-Returns a sequence in the inclusive range of the arguments.
-
-The canonical version generates a list of integers:
+The canonical version interleaves two lists of integers:
 
 ```clarity
-(range int int)
+(interleave (seq1 (list max-len int)) (seq2 (list max-len int)))
 ```
 
 Example:
 
-`(range 1 9)` => `(1 2 3 4 5 6 7 8 9)`
+`(leave 0 (list 1 2 3) (list 4 5 6)` => `(1 4 2 5 3 6)`
 
 Other variations:
 
 ```clarity
-(range-buff (first-item (buff 1)) (last-item (buff 1)))
-(range-ascii (first-item (string-ascii 1)) (last-item (string-ascii 1)))
+(interleave-uint (seq1 (list max-len uint)) (seq2 (list max-len uint)))
+(interleavee-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
+```
+
+### interpose
+
+Returns a list of the elements of `seq` separated by `sep`.
+
+The canonical version interposes an integer in a list of integers:
+
+```clarity
+(interpose (sep int) (seq (list max-len int)))
+```
+
+Example:
+
+`(interpose 0 (list 1 2 3))` => `(1 0 2 0 3)`
+
+Other variations:
+
+```clarity
+(interpose-uint (sep uint) (seq (list max-len uint)))
+(interpose-bool (sep bool) (seq (list max-len bool)))
 ```
 
 ### keep-some
@@ -205,6 +170,102 @@ Other variations:
 (partition-ascii (seq (list max-len (string-ascii 127))))
 ```
 
+### range
+
+Returns a sequence in the inclusive range of the arguments.
+
+The canonical version generates a list of integers:
+
+```clarity
+(range int int)
+```
+
+Example:
+
+`(range 1 9)` => `(1 2 3 4 5 6 7 8 9)`
+
+Other variations:
+
+```clarity
+(range-buff (first-item (buff 1)) (last-item (buff 1)))
+(range-ascii (first-item (string-ascii 1)) (last-item (string-ascii 1)))
+```
+
+### repeat
+
+Returns a list with `item` repeated `n` times, limited by the max sequence length.
+
+The canonical variation repeats an integer `n` times, with signature:
+
+```clarity
+(repeat (n int) (item int))
+```
+
+Example:
+
+`(repeat 3 0)` => `(0 0 0)`
+
+Variations:
+
+```clarity
+(repeat-uint (n int) (item uint))
+(repeat-bool (n int) (item bool))
+(repeat-string (n int) (item (string-utf8 max-len)))
+(repeat-ascii (n int) (item (string-ascii max-len)))
+(repeat-buff (n int) (item (buff max-len)))
+```
+
+### reverse 
+
+Returns a sequence in reverse order.
+
+The canonical version reverses a list of integers:
+
+```clarity
+(reverse (seq (list max-len int)))
+```
+
+Example:
+
+`(reverse (list 1 2 3))` => `(3 2 1)`
+
+Other variations:
+
+```clarity
+(reverse-uint (seq (list max-len uint)))
+(reverse-bool (seq (list max-len bool)))
+(reverse-buff (seq (buffer max-len)))
+(reverse-string (seq (string-utf8 max-len)))
+(reverse-ascii (seq (string-ascii max-len)))
+```
+
+Testnet:
+
+reverse7.clar  
+https://explorer.stacks.co/txid/0x54d727c740aa47bb51d4a8aac7ec26c18315cc3c32e98803278835a5a649bc03?chain=testnet
+
+### slice
+
+Returns a sequence taking `n` items after dropping `skip` items.
+
+The canonical version slices a list of integers:
+
+```clarity
+(slice (seq (list max-len int)) (skip int) (n int))
+```
+
+Example: 
+
+`(slice (list 1 2 3 4 5 6 7 8 9) 2 3)` => `(3 4 5)`
+
+```clarity
+(slice-uint (seq (list max-len uint)) (skip int) (n int) ))
+(take-nth-bool (seq (list max-len bool)) (skip int) (n int))
+(take-nth-buff (seq (list max-len (buff 127))) (skip int) (n int))
+(take-nth-string (seq (list max-len (string-utf8 127))) (skip int) (n int))
+(take-nth-ascii (seq (list max-len (string-ascii 127))) (skip int) (n int) ))
+```
+
 ### stagger
 
 Returns a list of sequences of up to n items each, staggered `step` apart.
@@ -227,48 +288,6 @@ Other variations:
 (stagger-buff (seq (list max-len (buff 127))))
 (stagger-string (seq (list max-len (string-utf8 127))))
 (stagger-ascii (seq (list max-len (string-ascii 127))))
-```
-
-### interleave
-
-Returns a list interleaving the items in two sequences. 
-
-The canonical version interleaves two lists of integers:
-
-```clarity
-(interleave (seq1 (list max-len int)) (seq2 (list max-len int)))
-```
-
-Example:
-
-`(leave 0 (list 1 2 3) (list 4 5 6)` => `(1 4 2 5 3 6)`
-
-Other variations:
-
-```clarity
-(interleave-uint (seq1 (list max-len uint)) (seq2 (list max-len uint)))
-(interleavee-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
-```
-
-### interpose
-
-Returns a list of the elements of `seq` separated by `sep`.
-
-The canonical version interposes an integer in a list of integers:
-
-```clarity
-(interpose (sep int) (seq (list max-len int)))
-```
-
-Example:
-
-`(interpose 0 (list 1 2 3))` => `(1 0 2 0 3)`
-
-Other variations:
-
-```clarity
-(interpose-uint (sep uint) (seq (list max-len uint)))
-(interpose-bool (sep bool) (seq (list max-len bool)))
 ```
 
 ### take-nth
@@ -295,24 +314,26 @@ Other variations:
 (take-nth-ascii (step int) (seq (list max-len (string-ascii 127)))))
 ```
 
-### flatten
+### take 
 
-Concatenates every item in a list.
+Returns a sequence with the first `n` items in `seq`, or all items if there are fewer than n.
 
-The canonical version concatenates a list of integer-lists:
+The canonical variation takes `n` items from a list of integers, with signature:
 
 ```clarity
-(flatten (seq (list max-len (list max-len int))))
+(take (n int) (seq (list max-len int)))
 ```
 
 Example:
 
-`(flatten (list (list 1 2 3) (list 4 5 6) (list 7 8 9)))` => `(1 2 3 4 5 6 7 8 9)`
+`(take 3 (list 1 2 3 4 5))` => `(1 2 3)`
 
 Other variations:
 
 ```clarity
-(flatten (seq (list max-len (list max-len uint))))
-(flatten (seq (list max-len (list max-len bool))))
+(take-uint (n int) (seq (list max-len uint)))
+(take-bool (n int) (seq (list max-len bool)))
+(take-buff (n int) (seq (buffer max-len)))
+(take-string (n int) (seq (string-utf8 max-len)))
+(take-ascii (n int) (seq (string-ascii max-len)))
 ```
-
