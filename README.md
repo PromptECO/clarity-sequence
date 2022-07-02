@@ -94,7 +94,7 @@ The canonical version interleaves two lists of integers:
 
 Example:
 
-`(leave 0 (list 1 2 3) (list 4 5 6)` => `(1 4 2 5 3 6)`
+`(interleave 0 (list 1 2 3) (list 4 5 6)` => `(1 4 2 5 3 6)`
 
 Other variations:
 
