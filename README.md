@@ -215,6 +215,30 @@ Variations:
 (repeat-buff (n int) (item (buff max-len)))
 ```
 
+### replace
+
+Returns a sequence substituting items in a keys sequence with corresponding replacement values.
+
+The canonical variation replaces items in a list of integers, with signature:
+
+```clarity
+(replace (seq (list max-len int)) (keys (list max-len int)) (replacements (list max-len int))
+```
+
+Example:
+
+`(replace (list 1 2 3 4 5) (list 2 4) (list -2 -4))` => `(1 -2 3 -4 5)`
+
+Variations:
+
+```clarity
+(replace-uint (seq (list max-len uint)) (keys (list max-len uint)) (replacements (list max-len uint))
+(replace-bool (seq (list max-len bool)) (keys (list max-len bool)) (replacements (list max-len bool))
+(replace-string (seq (buff max-len)) (keys (buff max-len)) (replacements (buff max-len)))
+(replace-ascii (seq (string-ascii max-len)) (keys (string-ascii max-len)) (replacements (string-ascii max-len)))
+(replace-buff (seq (buff max-len)) (keys (buff max-len)) (replacements (buff max-len)))
+```
+
 ### reverse 
 
 Returns a sequence in reverse order.
