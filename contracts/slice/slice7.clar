@@ -7,14 +7,14 @@
                  (right int))
  (begin
   (assert- (and (<= 0 left) (<= left 254)) "Out of bounds: left")
-  (assert- (and (<= 127 right) (<= right 127)) "Out of bounds: right")
+  (assert- (and (<= 0 right) (<= right 127)) "Out of bounds: right")
   (if (< left right) left right)))
 
 (define-private (asc-list
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -27,7 +27,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -68,9 +68,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-list i
-    (repeat127-list seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-list i
+      (repeat127-list seq)))
+    (list)))))
 
 (define-private (assert-
                  (invariant bool)
@@ -109,9 +114,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-list1 i
-    (repeat127-list1 seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-list1 i
+      (repeat127-list1 seq)))
+    (list)))))
 
 (define-read-only (slice-uint
                    (seq (list 127 uint))
@@ -145,9 +155,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-list2 i
-    (repeat127-list2 seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-list2 i
+      (repeat127-list2 seq)))
+    (list)))))
 
 (define-read-only (slice-bool
                    (seq (list 127 bool))
@@ -189,9 +204,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-buffer i
-    (repeat127-buffer seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-buffer i
+      (repeat127-buffer seq)))
+    (list)))))
 
 (define-private (slice-cat-buffer
                  (seq (buff 127))
@@ -244,9 +264,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-string i
-    (repeat127-string seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-string i
+      (repeat127-string seq)))
+    (list)))))
 
 (define-private (slice-cat-string
                  (seq (string-utf8 127))
@@ -299,9 +324,14 @@
  (begin
   (assert- (and (<= 0 skip) (<= skip 127)) "Out of bounds: skip")
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (let ((i (range-1-integer-integer skip (- (min-num-integer-integer (+ skip n) max-len) 1))))
-   (map for-step-integer-string1 i
-    (repeat127-string1 seq)))))
+  (let ((end (- (min-num-integer-integer (+ skip n)
+                 (to-int (len seq)))
+              1)))
+   (if (>= end skip)
+    (let ((i (range-1-integer-integer skip end)))
+     (map for-step-integer-string1 i
+      (repeat127-string1 seq)))
+    (list)))))
 
 (define-private (slice-cat-string1
                  (seq (string-ascii 127))
