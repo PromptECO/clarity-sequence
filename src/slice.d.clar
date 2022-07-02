@@ -8,7 +8,9 @@
 (define-type-alias Len (Int 0 max-len))
 
 (define (slice- seq (skip Len) (n Len))
-  (let ((end (- (min (+ skip n) (length seq)) 1)))
+  (let ((end (- (min (+ skip n) 
+                     (length seq))
+                1)))
     (if (>= end skip)
       (for ((i (range- skip end)))
         (unwrap-panic
