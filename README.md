@@ -32,7 +32,7 @@ Other variations:
 ```clarity
 (distinct-uint (seq (list max-len uint)))
 (distinct-bool (seq (list max-len bool)))
-(distinct-buff (seq (buffer max-len)))
+(distinct-buff (seq (buff max-len)))
 (distinct-string (seq (string-utf8 max-len)))
 (distinct-ascii (seq (string-ascii max-len)))
 ```
@@ -56,7 +56,7 @@ Other variations:
 ```clarity
 (drop-uint (n int) (seq (list max-len uint)))
 (drop-bool (n int) (seq (list max-len bool)))
-(drop-buff (n int) (seq (buffer max-len)))
+(drop-buff (n int) (seq (buff max-len)))
 (drop-string (n int) (seq (string-utf8 max-len)))
 (drop-ascii (n int) (seq (string-ascii max-len)))
 ```
@@ -260,7 +260,7 @@ Other variations:
 ```clarity
 (reverse-uint (seq (list max-len uint)))
 (reverse-bool (seq (list max-len bool)))
-(reverse-buff (seq (buffer max-len)))
+(reverse-buff (seq (buff max-len)))
 (reverse-string (seq (string-utf8 max-len)))
 (reverse-ascii (seq (string-ascii max-len)))
 ```
@@ -361,7 +361,7 @@ Other variations:
 ```clarity
 (take-uint (n int) (seq (list max-len uint)))
 (take-bool (n int) (seq (list max-len bool)))
-(take-buff (n int) (seq (buffer max-len)))
+(take-buff (n int) (seq (buff max-len)))
 (take-string (n int) (seq (string-utf8 max-len)))
 (take-ascii (n int) (seq (string-ascii max-len)))
 ```
