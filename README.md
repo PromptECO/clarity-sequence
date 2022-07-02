@@ -286,11 +286,13 @@ Example:
 
 ```clarity
 (slice-uint (seq (list max-len uint)) (skip int) (n int) ))
-(take-nth-bool (seq (list max-len bool)) (skip int) (n int))
-(take-nth-buff (seq (list max-len (buff 127))) (skip int) (n int))
-(take-nth-string (seq (list max-len (string-utf8 127))) (skip int) (n int))
-(take-nth-ascii (seq (list max-len (string-ascii 127))) (skip int) (n int) ))
+(slice-bool (seq (list max-len bool)) (skip int) (n int))
+(slice-buff (seq (list max-len (buff 127))) (skip int) (n int))
+(slice-string (seq (list max-len (string-utf8 127))) (skip int) (n int))
+(slice-ascii (seq (list max-len (string-ascii 127))) (skip int) (n int) ))
 ```
+
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.slice7-01](https://explorer.stacks.co/txid/0x917d21a59813fb1557549bc72d20b4c6cb049386401007e813694e5043c28f69?chain=testnet)
 
 ### stagger
 
