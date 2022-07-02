@@ -8,9 +8,12 @@
 (define-type-alias Len (Int 0 max-len))
 
 (define (slice- seq (skip Len) (n Len))
-  (for ((i (range- skip (- (min (+ skip n) max-len) 1))))
-    (unwrap-panic
-      (element-at seq i))))
+  (let ((end (- (min (+ skip n) (length seq)) 1)))
+    (if (>= end skip)
+      (for ((i (range- skip end)))
+        (unwrap-panic
+          (element-at seq i)))
+      (empty seq))))
 
 (define-read-only (slice 
                     (seq (List max-len Int))
@@ -64,5 +67,9 @@
                     (skip Len)
                     (n Len))
   (slice-cat seq skip n))
+
+(test=
+  (slice-ascii "abcdefgh" 2 3)
+  "cde")
 
 ;;
