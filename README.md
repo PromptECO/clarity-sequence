@@ -179,7 +179,7 @@ Returns a sequence in the inclusive range of the arguments.
 The canonical version generates a list of integers:
 
 ```clarity
-(range int int)
+(range (first-item int) (last-item int))
 ```
 
 Example:
