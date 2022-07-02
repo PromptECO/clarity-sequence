@@ -59,30 +59,6 @@ Other variations:
 (take-ascii (n int) (seq (string-ascii max-len)))
 ```
 
-### drop
-
-Returns a sequence with all but the first n items in seq.
-
-The canonical version drops `n` items from a list of integers, with signature:
-
-```clarity
-(drop (n int) (seq (list max-len int)))
-```
-
-Example:
-
-`(drop 3 (list 1 2 3 4 5))` => `(4 5)`
-
-Other variations:
-
-```clarity
-(drop-uint (n int) (seq (list max-len uint)))
-(drop-bool (n int) (seq (list max-len bool)))
-(drop-buff (n int) (seq (buffer max-len)))
-(drop-string (n int) (seq (string-utf8 max-len)))
-(drop-ascii (n int) (seq (string-ascii max-len)))
-```
-
 ### distinct 
 
 Returns a sequence without duplicate items.
@@ -105,6 +81,30 @@ Other variations:
 (distinct-buff (seq (buffer max-len)))
 (distinct-string (seq (string-utf8 max-len)))
 (distinct-ascii (seq (string-ascii max-len)))
+```
+
+### drop
+
+Returns a sequence with all but the first n items in seq.
+
+The canonical version drops `n` items from a list of integers, with signature:
+
+```clarity
+(drop (n int) (seq (list max-len int)))
+```
+
+Example:
+
+`(drop 3 (list 1 2 3 4 5))` => `(4 5)`
+
+Other variations:
+
+```clarity
+(drop-uint (n int) (seq (list max-len uint)))
+(drop-bool (n int) (seq (list max-len bool)))
+(drop-buff (n int) (seq (buffer max-len)))
+(drop-string (n int) (seq (string-utf8 max-len)))
+(drop-ascii (n int) (seq (string-ascii max-len)))
 ```
 
 ### reverse 
@@ -227,6 +227,27 @@ Other variations:
 (stagger-buff (seq (list max-len (buff 127))))
 (stagger-string (seq (list max-len (string-utf8 127))))
 (stagger-ascii (seq (list max-len (string-ascii 127))))
+```
+
+### interleave
+
+Returns a list interleaving the items in two sequences. 
+
+The canonical version interleaves two lists of integers:
+
+```clarity
+(interleave (seq1 (list max-len int)) (seq2 (list max-len int)))
+```
+
+Example:
+
+`(leave 0 (list 1 2 3) (list 4 5 6)` => `(1 4 2 5 3 6)`
+
+Other variations:
+
+```clarity
+(interleave-uint (seq1 (list max-len uint)) (seq2 (list max-len uint)))
+(interleavee-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
 ```
 
 ### interpose
