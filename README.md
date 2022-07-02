@@ -9,7 +9,8 @@ a numerical suffix reflecting the number of bits in the max sequence length. For
 named `repeat7.clar` provides functions supporting a max sequence length of 127 = `(- (pow 2 7) 1)`
 represented in signatures with the placeholder `max-len`.
 
-Note: This implementation is not yet optimized to minimize execution cost and code size. 
+Note: The clarity code has been generated from the files in the `src` directory but is not yet 
+optimized to minimize execution cost and code size. 
 
 ### distinct 
 
