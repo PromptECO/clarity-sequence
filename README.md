@@ -301,7 +301,7 @@ Returns a list of sequences of up to n items each, staggered `step` apart.
 The canonical version partitions a list of integers:
 
 ```clarity
-(partition (seq (list max-len int)))
+(stagger (n int) (step int) (seq (list max-len int)))
 ```
 
 Example:
@@ -311,11 +311,11 @@ Example:
 Other variations:
 
 ```clarity
-(stagger-uint (seq (list max-len uint)))
-(stagger-bool (seq (list max-len bool)))
-(stagger-buff (seq (list max-len (buff 127))))
-(stagger-string (seq (list max-len (string-utf8 127))))
-(stagger-ascii (seq (list max-len (string-ascii 127))))
+(stagger-uint (n int) (step int) (seq (list max-len uint)))
+(stagger-bool (n int) (step int) (seq (list max-len bool)))
+(stagger-buff (n int) (step int) (seq (list max-len (buff 127))))
+(stagger-string (n int) (step int) (seq (list max-len (string-utf8 127))))
+(stagger-ascii (n int) (step int) (seq (list max-len (string-ascii 127))))
 ```
 
 ### take-nth
