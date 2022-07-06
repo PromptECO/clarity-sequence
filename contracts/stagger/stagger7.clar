@@ -14,7 +14,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -27,7 +27,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -49,7 +49,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -150,16 +150,6 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (repeat126-integer1
-                 (x int))
- (begin
-  (assert- (and (<= 0 x) (<= x 127)) "Out of bounds: x")
-  (list
-   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x)))
-
 (define-private (stagger-list
                  (n int)
                  (step int)
@@ -173,7 +163,7 @@
    (map for-step-integer-integer-list-integer g
     (repeat126-integer n)
     (repeat126-list seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-private (assert-
                  (invariant bool)
@@ -255,7 +245,7 @@
    (map for-step-integer-integer-list-integer1 g
     (repeat126-integer n)
     (repeat126-list1 seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-read-only (stagger-uint
                    (n int)
@@ -332,7 +322,7 @@
    (map for-step-integer-integer-list-integer2 g
     (repeat126-integer n)
     (repeat126-list2 seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-read-only (stagger-bool
                    (n int)
@@ -409,7 +399,7 @@
    (map for-step-integer-integer-buffer-integer g
     (repeat126-integer n)
     (repeat126-buffer seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-read-only (stagger-buff
                    (n int)
@@ -486,7 +476,7 @@
    (map for-step-integer-integer-string-integer g
     (repeat126-integer n)
     (repeat126-string seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-read-only (stagger-string
                    (n int)
@@ -563,7 +553,7 @@
    (map for-step-integer-integer-string-integer1 g
     (repeat126-integer n)
     (repeat126-string1 seq)
-    (repeat126-integer1 step)))))
+    (repeat126-integer step)))))
 
 (define-read-only (stagger-ascii
                    (n int)
