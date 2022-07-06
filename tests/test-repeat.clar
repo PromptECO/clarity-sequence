@@ -1,0 +1,15 @@
+;; TEST REPEAT
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat 3 0)
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat-uint 8 u42)
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat-bool 3 true)
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat-buff 3 0x42)
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat-string 3 u"z")
+
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00 repeat-ascii 3 "x")
+
+;;
