@@ -95,6 +95,8 @@ Other variations:
 (flatten-bool (seq (list max-len (list max-len bool))))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.flatten7-00](https://explorer.stacks.co/txid/0xfc2b4d7de0613aa53196c9f6eaaa7595669690ee79d03b09098cc52f96443b44?chain=testnet)
+
 ### interleave
 
 Returns a list interleaving the items in two sequences. 
