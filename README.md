@@ -20,7 +20,7 @@ Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/
   distinct (list 1 2 3 3 2 1 4 5))
 ```
 
-Alternatively, use [Clarity.Tools](https://shrtco.de/3JYgH2) extended syntax:
+Alternatively, use [Clarity.Tools](https://shrtco.de/3JYgH2) extended syntax for the function calls:
 
 ```clarity 
 (use {distinct} 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00)
