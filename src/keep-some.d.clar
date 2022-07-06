@@ -1,7 +1,4 @@
 ;; KEEP-SOME 
-
-(import {repeat: repeat-
-         range: range-})
   
 (define-constant max-len (- (pow 2 7) 1))
 
