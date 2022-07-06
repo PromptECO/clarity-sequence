@@ -1,4 +1,8 @@
 ;; DISTINCT 
+ 
+(define-constant max-len (- (pow 2 7) 1))
+
+(define-type-alias Len (Int 0 max-len))
 
 (define (distinct-redux item result)
   (as result
@@ -62,3 +66,4 @@
 (test=
   (distinct-ascii "12333421")
   "1234")
+  
