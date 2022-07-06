@@ -26,7 +26,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -39,7 +39,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -62,10 +62,9 @@
                  (acc {a: (list 128 int), r: (list 127 int)}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
@@ -125,15 +124,6 @@
  (begin
   (assert- (and (<= 0 value7) (<= value7 256)) "Out of bounds: value7")
   (begin
-   (assert- (let ((tmp65 value7))
-             (and (<= 0 tmp65) (<= tmp65 255))) "No value matching the type")
-   value7)))
-
-(define-private (check-type-3-integer1
-                 (value7 int))
- (begin
-  (assert- (and (<= 0 value7) (<= value7 256)) "Out of bounds: value7")
-  (begin
    (assert- (let ((tmp69 value7))
              (and (<= 0 tmp69) (<= tmp69 255))) "No value matching the type")
    value7)))
@@ -151,7 +141,7 @@
                  (d int)
                  (l (list 256 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -164,7 +154,7 @@
                  (d int)
                  (l (list 256 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -203,7 +193,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -216,7 +206,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -261,10 +251,9 @@
                  (acc {a: (list 128 (list 256 (buff 1))), r: (list 127 (list 256 (buff 1)))}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
@@ -311,8 +300,8 @@
    (subseq-list buffer-range
     (check-type-3-integer (to-int
                            (unwrap-panic (index-of buffer-range first-item))))
-    (check-type-3-integer1 (to-int
-                            (unwrap-panic (index-of buffer-range last-item))))) init)))
+    (check-type-3-integer (to-int
+                           (unwrap-panic (index-of buffer-range last-item))))) init)))
 
 (define-constant ascii-range (list "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"))
 
@@ -329,7 +318,7 @@
                  (d int)
                  (l (list 32 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -342,7 +331,7 @@
                  (d int)
                  (l (list 32 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -395,10 +384,9 @@
                  (acc {a: (list 128 (list 26 (string-ascii 1))), r: (list 127 (list 26 (string-ascii 1)))}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
