@@ -22,7 +22,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n (to-int (len l))))
-  (if (>= n d)
+  (if (> n d)
    l
    (unwrap-panic
     (as-max-len?
@@ -35,7 +35,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n (to-int (len l))))
-  (if (>= n d)
+  (if (> n d)
    l
    (unwrap-panic
     (as-max-len?
@@ -235,7 +235,7 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (take-nth-string
+(define-private (take-nth-string1
                  (step int)
                  (seq (string-utf8 127)))
  (begin
@@ -246,12 +246,12 @@
     (repeat127-string seq)
     (repeat127-integer step)))))
 
-(define-read-only (stagger-string
+(define-read-only (take-nth-string
                    (step int)
                    (seq (string-utf8 127)))
  (begin
   (assert- (and (<= 0 step) (<= step 127)) "Out of bounds: step")
-  (take-nth-string step seq)))
+  (take-nth-string1 step seq)))
 
 (define-private (for-step-integer-string-integer1
                  (g int)
@@ -272,7 +272,7 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (take-nth-string1
+(define-private (take-nth-string2
                  (step int)
                  (seq (string-ascii 127)))
  (begin
@@ -283,11 +283,11 @@
     (repeat127-string1 seq)
     (repeat127-integer step)))))
 
-(define-read-only (stagger-ascii
+(define-read-only (take-nth-ascii
                    (step int)
                    (seq (string-ascii 127)))
  (begin
   (assert- (and (<= 0 step) (<= step 127)) "Out of bounds: step")
-  (take-nth-string1 step seq)))
+  (take-nth-string2 step seq)))
 
 ;;
