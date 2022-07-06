@@ -303,10 +303,7 @@ Other variations:
 (reverse-ascii (seq (string-ascii max-len)))
 ```
 
-Testnet:
-
-reverse7.clar  
-https://explorer.stacks.co/txid/0x54d727c740aa47bb51d4a8aac7ec26c18315cc3c32e98803278835a5a649bc03?chain=testnet
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.reverse7-00](https://explorer.stacks.co/txid/0x1853ccad7de493bbc62fa3e55960bb0a52275b8105eb9543932c3833c791e29c?chain=testnet)
 
 ### slice
 
