@@ -47,14 +47,22 @@
   (take-nth-buff 2 0x01024269)
   (list 0x01 0x42))
 
-(define-read-only (stagger-string 
+(define-read-only (take-nth-string 
                     (step Len)
                     (seq (String max-len)))
   (take-nth- step seq))
 
-(define-read-only (stagger-ascii 
+(test=
+  (take-nth-string 2 u"abcdef")
+  (list u"a" u"c" u"e"))
+    
+(define-read-only (take-nth-ascii 
                     (step Len)
                     (seq (String max-len ascii)))
   (take-nth- step seq))
+  
+(test=
+  (take-nth-ascii 2 "abcdef")
+  (list "a" "c" "e"))
 
 ;;
