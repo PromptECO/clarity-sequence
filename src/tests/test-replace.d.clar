@@ -7,6 +7,8 @@
 
 (replace-uint (list u1 u2 u3 u4 u5 u6) (list u3 u5) (list u33 u55))
 
+(replace-bool (list true false false true) (list false true) (list true false ))
+
 (replace-buff 0x112233445566 0x3355 0x0000)
 
 (replace-string u"hxlly wyrld" u"xy" u"eo")
