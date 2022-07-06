@@ -333,7 +333,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.slice7-01](https://explorer.
 
 Returns a list of sequences of up to n items each, staggered `step` apart.
 
-The canonical version partitions a list of integers:
+The canonical variation staggers a list of integers:
 
 ```clarity
 (stagger (n int) (step int) (seq (list max-len int)))
@@ -352,6 +352,8 @@ Other variations:
 (stagger-string (n int) (step int) (seq (list max-len (string-utf8 127))))
 (stagger-ascii (n int) (step int) (seq (list max-len (string-ascii 127))))
 ```
+
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.stagger7-00](https://explorer.stacks.co/txid/0x10b1a5903eee628a5c8cbf8fc4e35cc179875f71c09489b1e439d425bf74ad15?chain=testnet)
 
 ### take-nth
 
