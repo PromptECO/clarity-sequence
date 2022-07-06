@@ -167,7 +167,7 @@ Other variations:
 (keep-ascii (seq (list max-len (optional (string-ascii 127)))))
 ```
 
-Testnet: [keep-some7-00](https://explorer.stacks.co/txid/0x9f88fbfb253baca7544d6b50ba1c3c953c46241c13c5228c9c2fa45486bbac44?chain=testnet)
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.keep-some7-00](https://explorer.stacks.co/txid/0x9f88fbfb253baca7544d6b50ba1c3c953c46241c13c5228c9c2fa45486bbac44?chain=testnet)
 
 ### partition
 
