@@ -38,7 +38,7 @@
 
 (define (drop-cat (n Len) seq)
   (reduce concat 
-    (empty- seq)
+    (empty seq)
     (drop- n seq)))
 
 (define-read-only (drop-buff 
