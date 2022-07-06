@@ -19,6 +19,14 @@ Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/
 (contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00 distinct (list 1 2 3 3 2 1 4 5))
 ```
 
+Alternatively, in [Clarity.Tools](https://clarity.tools):
+
+```clarity 
+(use {distinct} 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00)
+
+(distinct (list 1 2 3 3 2 1 4 5))
+```
+
 ## Reference
 
 ### distinct 
