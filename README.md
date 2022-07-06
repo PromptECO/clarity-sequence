@@ -379,6 +379,8 @@ Other variations:
 (take-nth-ascii (step int) (seq (list max-len (string-ascii 127)))))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.take-nth7-00](https://explorer.stacks.co/txid/0xabb99264fedca5a53cd2cbb398d95efe4f829a59f216d7e6ac76f17090332c92?chain=testnet)
+
 ### take 
 
 Returns a sequence with the first `n` items in `seq`, or all items if there are fewer than n.
