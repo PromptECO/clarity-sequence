@@ -61,8 +61,19 @@
                     (seq (String max-len)))
   (stagger- n step seq))
 
+(test=
+  (stagger-string 2 1 u"abcd")
+  (list (list u"a" u"b") (list u"b" u"c") (list u"c" u"d")))
+  
+
 (define-read-only (stagger-ascii 
                     (n Len) 
                     (step Len)
                     (seq (String max-len ascii)))
   (stagger- n step seq))
+
+(test=
+  (stagger-ascii 2 1 "abcd")
+  (list (list "a" "b") (list "b" "c") (list "c" "d")))
+
+;;
