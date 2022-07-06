@@ -118,6 +118,8 @@ Other variations:
 (interleave-bool (seq1 (list max-len bool)) (seq2 (list max-len bool)))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.interleave7-00](https://explorer.stacks.co/txid/0xe4a11464269fd24118835e3ae84498bc116f09c1a2b4a751b88b35acb88099f7?chain=testnet)
+
 ### interpose
 
 Returns a list of the elements of `seq` separated by `sep`.
