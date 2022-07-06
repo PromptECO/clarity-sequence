@@ -25,7 +25,7 @@ Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/
 
 Returns a sequence without duplicate items.
 
-The canonical version removes duplicate items from a list of integers:
+The canonical variation removes duplicate items from a list of integers:
 
 ```clarity
 (distinct (seq (list max-len int)))
@@ -52,7 +52,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00
 
 Returns a sequence with all but the first `n` items in `seq`.
 
-The canonical version drops `n` items from a list of integers, with signature:
+The canonical variation drops `n` items from a list of integers, with signature:
 
 ```clarity
 (drop (n int) (seq (list max-len int)))
@@ -78,7 +78,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.drop7-00](https://explorer.s
 
 Concatenates every item in a list.
 
-The canonical version concatenates a list of integer-lists:
+The canonical variation concatenates a list of integer-lists:
 
 ```clarity
 (flatten (seq (list max-len (list max-len int))))
@@ -101,7 +101,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.flatten7-00](https://explore
 
 Returns a list interleaving the items in two sequences. 
 
-The canonical version interleaves two lists of integers:
+The canonical variation interleaves two lists of integers:
 
 ```clarity
 (interleave (seq1 (list max-len int)) (seq2 (list max-len int)))
@@ -124,7 +124,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.interleave7-00](https://expl
 
 Returns a list of the elements of `seq` separated by `sep`.
 
-The canonical version interposes an integer in a list of integers:
+The canonical variation interposes an integer in a list of integers:
 
 ```clarity
 (interpose (sep int) (seq (list max-len int)))
@@ -147,7 +147,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.interpose7-00](https://explo
 
 Returns a list of `some` values from a list of options.
 
-The canonical version returns a list of integers:
+The canonical variation returns a list of integers:
 
 ```clarity
 (keep-some (seq (list max-len int)))
@@ -166,6 +166,8 @@ Other variations:
 (keep-string (seq (list max-len (optional (string-utf8 127)))))
 (keep-ascii (seq (list max-len (optional (string-ascii 127)))))
 ```
+
+Testnet: [keep-some7-00](https://explorer.stacks.co/txid/0x9f88fbfb253baca7544d6b50ba1c3c953c46241c13c5228c9c2fa45486bbac44?chain=testnet)
 
 ### partition
 
