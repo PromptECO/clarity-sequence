@@ -18,7 +18,7 @@
   (keep-some- seq))
 
 (test=
-  (keep-some (list (some u1) none (some u2) none))
+  (keep-uint (list (some u1) none (some u2) none))
   (list u1 u2))
 
 (define-read-only (keep-bool (seq (List max-len (Option Bool))))
