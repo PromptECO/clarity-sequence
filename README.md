@@ -173,10 +173,10 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.keep-some7-00](https://explo
 
 Returns a list of sequences of up to n items each.
 
-The canonical version partitions a list of integers:
+The canonical variation partitions a list of integers:
 
 ```clarity
-(partition (seq (list max-len int)))
+(partition (n int) (seq (list max-len int)))
 ```
 
 Example:
@@ -186,12 +186,14 @@ Example:
 Other variations:
 
 ```clarity
-(partition-uint (seq (list max-len uint)))
-(partition-bool (seq (list max-len bool)))
-(partition-buff (seq (list max-len (buff 127))))
-(partition-string (seq (list max-len (string-utf8 127))))
-(partition-ascii (seq (list max-len (string-ascii 127))))
+(partition-uint (n int) (seq (list max-len uint)))
+(partition-bool (n int) (seq (list max-len bool)))
+(partition-buff (n int) (seq (list max-len (buff 127))))
+(partition-string (n int) (seq (list max-len (string-utf8 127))))
+(partition-ascii (n int) (seq (list max-len (string-ascii 127))))
 ```
+
+Testnet: []()
 
 ### range
 
