@@ -9,9 +9,17 @@ named `repeat7.clar` provides functions supporting a max sequence length of 127 
 represented in signatures with the placeholder `max-len`.
 
 The clarity code has been generated from the files in the `src` directory but is not yet 
-optimized to minimize execution cost and code size. 
+optimized to minimize execution cost and code size.
 
-## Documentation
+## Usage
+
+Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/docs/write-smart-contracts/clarity-language/language-functions#contract-call) as in:
+
+```clarity
+(contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00 distinct (list 1 2 3 3 2 1 4 5))
+```
+
+## Reference
 
 ### distinct 
 
