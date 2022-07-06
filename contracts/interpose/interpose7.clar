@@ -25,10 +25,9 @@
                  (acc {a: (list 128 int), r: (list 127 int)}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
@@ -102,10 +101,9 @@
                  (acc {a: (list 128 uint), r: (list 127 uint)}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
@@ -179,10 +177,9 @@
                  (acc {a: (list 128 bool), r: (list 127 bool)}))
  (let ((a (get a acc))
        (r (get r acc))
-       (un (to-uint n))
-       (lenr (len r)))
-  (if (< lenr un)
-   (let ((c (mod (- un lenr)
+       (lenr (to-int (len r))))
+  (if (< lenr n)
+   (let ((c (mod (to-uint (- n lenr))
              (* (len a) u2))))
     {a: (unwrap-panic
          (as-max-len?
