@@ -37,6 +37,9 @@ Other variations:
 (distinct-ascii (seq (string-ascii max-len)))
 ```
 
+Testnet:[ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00
+](https://explorer.stacks.co/txid/0x74484d4a7eb12441c695b4ffad45de0088801267a6d3619501122865cc32220c?chain=testnet)
+
 ### drop
 
 Returns a sequence with all but the first n items in seq.
