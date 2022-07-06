@@ -251,6 +251,8 @@ Variations:
 (repeat-buff (n int) (item (buff max-len)))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.repeat7-00](https://explorer.stacks.co/txid/0x62fddebf76b9842716e55e10ccd7b7add31425e0ada14173440743cf4900a67d?chain=testnet)
+
 ### replace
 
 Returns a sequence substituting items in a keys sequence with corresponding replacement values.
