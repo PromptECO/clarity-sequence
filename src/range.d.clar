@@ -50,7 +50,7 @@
   (range-buff 0x01 0x03)
   0x010203)
 
-(define-constant ascii-range (range- "a" "z"))
+(define-constant ascii-range (range- " " "~"))
 
 (define-read-only (range-ascii 
                     (first-item (String 1 ascii)) 
