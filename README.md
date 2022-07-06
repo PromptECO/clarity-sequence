@@ -141,6 +141,8 @@ Other variations:
 (interpose-bool (sep bool) (seq (list max-len bool)))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.interpose7-00](https://explorer.stacks.co/txid/0xbf17b7ef7cfe158750b1919c9c2dd2f1ffbe3570347e93fec9e5370395b94641?chain=testnet)
+
 ### keep-some
 
 Returns a list of `some` values from a list of options.
