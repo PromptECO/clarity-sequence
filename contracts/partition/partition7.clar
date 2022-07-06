@@ -22,7 +22,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -35,7 +35,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
@@ -57,7 +57,7 @@
                  (d int)
                  (l (list 128 int)))
  (let ((n1 (to-int (len l))))
-  (if (>= n1 d)
+  (if (> n1 d)
    l
    (unwrap-panic
     (as-max-len?
