@@ -1,7 +1,7 @@
 ;; TEST STAGGER
 
 (use {stagger, stagger-uint, stagger-bool, stagger-buff, stagger-string, stagger-ascii} 
-  'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.drop7-00)
+  'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.stagger7-00)
 
 (stagger 3 2 (list 1 2 3 4 5 6 7 8 9))
 
@@ -14,5 +14,5 @@
 (stagger-string 2 1 u"abcd")
 
 (stagger-ascii 2 1 "abcd")
-
+  
 ;;
