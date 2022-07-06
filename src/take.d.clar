@@ -19,12 +19,17 @@
   (take- n seq))
 
 (test=
-  (take 3 (list 1 2 3 4 5 6)))
+  (take 3 (list 1 2 3 4 5 6))
+  (list 1 2 3))
   
 (define-read-only (take-uint
                     (n Len) 
                     (seq (List max-len Uint)))
   (take- n seq))
+
+(test=
+  (take-uint 3 (list u1 u2 u3 u4 u5 u6))
+  (list u1 u2 u3))
 
 (define-read-only (take-bool 
                     (n Len) 
@@ -32,7 +37,8 @@
   (take- n seq))
 
 (test=
-  (take-bool 3 (list true false false true)))
+  (take-bool 3 (list true false true false))
+  (list true false true))
   
 (define (take-cat (n Len) seq)
   (reduce concat
@@ -45,16 +51,25 @@
   (take-cat n seq))
 
 (test=
-  (take-buff 3 0x112233445566))
+  (take-buff 3 0x112233445566)
+  0x112233)
 
 (define-read-only (take-string 
                     (n Len)
                     (seq (String max-len)))
   (take-cat n seq))
+
+(test=
+  (take-string 3 u"abcdef")
+  u"abc")
     
 (define-read-only (take-ascii 
                     (n Len)
                     (seq (String max-len ascii)))
   (take-cat n seq))
+
+(test=
+  (take-string 3 "abcdef")
+  "abc")
 
 ;;
