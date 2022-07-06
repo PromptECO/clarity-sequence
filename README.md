@@ -193,7 +193,7 @@ Other variations:
 (partition-ascii (n int) (seq (list max-len (string-ascii 127))))
 ```
 
-Testnet: []()
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.partition7-00](https://explorer.stacks.co/txid/0x5f2e784afb3ebf10b1fbeb2b28839bb1c194853eafe83a75145e8527a9e13521?chain=testnet)
 
 ### range
 
