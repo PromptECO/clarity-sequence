@@ -7,15 +7,6 @@
 
 (define-type-alias Len (Int 0 max-len))
 
-(define (empty- seq)
-  (if (is (Buffer max-len) seq)
-    0x
-    (if (is (String max-len ascii) seq)
-      ""
-      (if (is (String max-len) seq)
-        u""
-        (as-max-len (as seq (list)) u0)))))
-
 (define (take- (n Len) seq)
   (map unwrap-panic
     (map element-at 
@@ -45,7 +36,7 @@
   
 (define (take-cat (n Len) seq)
   (reduce concat
-    (empty- seq)
+    (empty seq)
     (take- n seq)))
 
 (define-read-only (take-buff 
@@ -64,4 +55,6 @@
 (define-read-only (take-ascii 
                     (n Len)
                     (seq (String max-len ascii)))
-  (take-cat n seq)) 
+  (take-cat n seq))
+
+;;
