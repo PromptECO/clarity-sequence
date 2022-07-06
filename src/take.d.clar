@@ -69,7 +69,7 @@
   (take-cat n seq))
 
 (test=
-  (take-string 3 "abcdef")
+  (take-ascii 3 "abcdef")
   "abc")
 
 ;;
