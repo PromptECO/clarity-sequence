@@ -19,14 +19,6 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (repeat127-list1
-                 (x (list 127 int)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
 (define-private (replace-list-list-list
                  (seq (list 127 int))
                  (org (list 127 int))
@@ -34,7 +26,7 @@
  (let ((item seq))
   (map for-step-integer-list-list item
    (repeat127-list org)
-   (repeat127-list1 rep))))
+   (repeat127-list rep))))
 
 (define-read-only (replace
                    (seq (list 127 int))
@@ -51,15 +43,7 @@
       (element-at rep ix))
   item))
 
-(define-private (repeat127-list2
-                 (x (list 127 uint)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
-(define-private (repeat127-list3
+(define-private (repeat127-list1
                  (x (list 127 uint)))
  (list
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
@@ -73,8 +57,8 @@
                  (rep (list 127 uint)))
  (let ((item seq))
   (map for-step-unsigned-list-list item
-   (repeat127-list2 org)
-   (repeat127-list3 rep))))
+   (repeat127-list1 org)
+   (repeat127-list1 rep))))
 
 (define-read-only (replace-uint
                    (seq (list 127 uint))
@@ -91,15 +75,7 @@
       (element-at rep ix))
   item))
 
-(define-private (repeat127-list4
-                 (x (list 127 bool)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
-(define-private (repeat127-list5
+(define-private (repeat127-list2
                  (x (list 127 bool)))
  (list
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
@@ -113,8 +89,8 @@
                  (rep (list 127 bool)))
  (let ((item seq))
   (map for-step-bool-list-list item
-   (repeat127-list4 org)
-   (repeat127-list5 rep))))
+   (repeat127-list2 org)
+   (repeat127-list2 rep))))
 
 (define-read-only (replace-bool
                    (seq (list 127 bool))
@@ -147,14 +123,6 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (repeat127-buffer1
-                 (x (buff 127)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
 (define-private (replace-buffer-buffer-buffer
                  (seq (buff 127))
                  (org (buff 127))
@@ -162,7 +130,7 @@
  (let ((item seq))
   (map for-step-buffer-buffer-buffer item
    (repeat127-buffer org)
-   (repeat127-buffer1 rep))))
+   (repeat127-buffer rep))))
 
 (define-private (replace-cat-buffer-buffer-buffer
                  (seq (buff 127))
@@ -203,14 +171,6 @@
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
 
-(define-private (repeat127-string1
-                 (x (string-utf8 127)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
 (define-private (replace-string-string-string
                  (seq (string-utf8 127))
                  (org (string-utf8 127))
@@ -218,7 +178,7 @@
  (let ((item seq))
   (map for-step-string-string-string item
    (repeat127-string org)
-   (repeat127-string1 rep))))
+   (repeat127-string rep))))
 
 (define-private (replace-cat-string-string-string
                  (seq (string-utf8 127))
@@ -251,15 +211,7 @@
       (element-at rep ix))
   item))
 
-(define-private (repeat127-string2
-                 (x (string-ascii 127)))
- (list
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
-  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x))
-
-(define-private (repeat127-string3
+(define-private (repeat127-string1
                  (x (string-ascii 127)))
  (list
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
@@ -273,8 +225,8 @@
                  (rep (string-ascii 127)))
  (let ((item seq))
   (map for-step-string-string-string1 item
-   (repeat127-string2 org)
-   (repeat127-string3 rep))))
+   (repeat127-string1 org)
+   (repeat127-string1 rep))))
 
 (define-private (replace-cat-string-string-string1
                  (seq (string-ascii 127))
