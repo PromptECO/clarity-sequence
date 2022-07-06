@@ -199,7 +199,7 @@ Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.partition7-00](https://explo
 
 Returns a sequence in the inclusive range of the arguments.
 
-The canonical version generates a list of integers:
+The canonical variation generates a list of integers:
 
 ```clarity
 (range (first-item int) (last-item int))
@@ -215,6 +215,8 @@ Other variations:
 (range-buff (first-item (buff 1)) (last-item (buff 1)))
 (range-ascii (first-item (string-ascii 1)) (last-item (string-ascii 1)))
 ```
+
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.range7-00](https://explorer.stacks.co/txid/0x25e7ce28a0fefa2dbccbbb3ddd9fb63d971735e049224816e248ce372ac4b6f9?chain=testnet)
 
 ### repeat
 
