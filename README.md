@@ -64,6 +64,8 @@ Other variations:
 (drop-ascii (n int) (seq (string-ascii max-len)))
 ```
 
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.drop7-00](https://explorer.stacks.co/txid/0x8319292fb732bda69e3dd38da2fe24279df2d848acccd4e0f545340528b1fa8d?chain=testnet)
+
 ### flatten
 
 Concatenates every item in a list.
