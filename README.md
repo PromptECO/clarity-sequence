@@ -30,6 +30,22 @@ Alternatively, use [Clarity.Tools](https://shrtco.de/3JYgH2) extended syntax to 
 
 ## Reference
 
+### convert
+
+Converts `seq` to a different sequence type.
+
+```clarity
+(ascii-to-buff (seq (string-ascii max-len)))
+(buff-to-ascii (seq (buff max-len)))
+```
+
+Example:
+
+`(ascii-to-buff "abc")` => `0x616263`
+`(buff-to-ascii 0x616263)` => `"abc"`
+
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.convert7-00](https://explorer.stacks.co/txid/0x08544b3ccec64a73801fe29bf3648b7fdc45e35975cf3478311e1257f5023b77?chain=testnet)
+
 ### distinct 
 
 Returns a sequence without duplicate items.
