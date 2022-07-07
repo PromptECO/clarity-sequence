@@ -423,3 +423,7 @@ Other variations:
 ```
 
 Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.take7-00](https://explorer.stacks.co/txid/0xc5069ae2d0ad0fd895d9fec70b80e1216b1ba2c27dd86c33f3a8b541f3eb72a4?chain=testnet)
+
+## Acknowledgements 
+
+The implementation of this library was supported with a grant from the [Stacks Foundation](https://stacks.org).
