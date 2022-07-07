@@ -50,7 +50,10 @@
   (range-buff 0x01 0x03)
   0x010203)
 
-(define-constant ascii-range (range- " " "~"))
+;; (define-constant ascii-range (range- " " "~"))
+
+(define-constant ascii-range 
+  " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~")
 
 (define-read-only (range-ascii 
                     (first-item (String 1 ascii)) 
