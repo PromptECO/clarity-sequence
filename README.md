@@ -13,7 +13,7 @@ optimized to minimize execution cost and code size.
 
 ## Usage
 
-Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/docs/write-smart-contracts/clarity-language/language-functions#contract-call) on the contract with the deployed function, as in:
+Call the functions from Clarity using [`contract-call?`](https://docs.stacks.co/docs/write-smart-contracts/clarity-language/language-functions#contract-call) on the extension contract with the function, as in:
 
 ```clarity
 (contract-call? 'ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.distinct7-00 
