@@ -8,7 +8,7 @@
   (reduce concat (list) seq))
 
 (define-read-only (flatten
-                    (seq (List max-len (List max-len int))))
+                    (seq (List max-len (List max-len Int))))
   (flatten- seq))
 
 (test=
@@ -17,14 +17,15 @@
 
 
 (define-read-only (flatten-uint 
-                    (seq (List max-len (List max-len uint))))
+                    (seq (List max-len (List max-len Uint))))
   (flatten- seq))
 
 (test=
   (flatten-uint (list (list u1 u2 u3) (list u4 u5 u6) (list u7 u8 u9)))
   (list u1 u2 u3 u4 u5 u6 u7 u8 u9))
+  
 (define-read-only (flatten-bool 
-                    (seq (List max-len (List max-len bool))))
+                    (seq (List max-len (List max-len Bool))))
    (flatten- seq))
 
 (test=
