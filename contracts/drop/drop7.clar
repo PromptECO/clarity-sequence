@@ -1,4 +1,6 @@
 ;; DROP
+;;
+;; https://github.com/njordhov/clarity-sequence
 
 (define-constant max-len (- (pow 2 7) 1))
 
@@ -7,8 +9,8 @@
  (begin
   (assert- (and (<= -127 value1) (<= value1 127)) "Out of bounds: value1")
   (begin
-   (assert- (let ((tmp17 value1))
-             (and (<= 0 tmp17) (<= tmp17 127))) "No value matching the type")
+   (assert- (let ((tmp23 value1))
+             (and (<= 0 tmp23) (<= tmp23 127))) "No value matching the type")
    value1)))
 
 (define-private (min-num-integer-integer
@@ -69,6 +71,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-list
+                 (nd int)
+                 (vd (list 127 int)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-list-list vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer
                  (n int)
                  (acc {a: (list 128 (list 127 int)), r: (list 127 (list 127 int))}))
@@ -88,10 +97,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record14 acc))
-    (merge record14
-     {a: (get a record14),
-      r: (get r record14)})))))
+   (let ((record35 acc))
+    (merge record35
+     {a: (get a record35),
+      r: (get r record35)})))))
 
 (define-private (repeater-list-list
                  (v (list 127 int))
@@ -101,26 +110,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-list
-                 (nd int)
-                 (vd (list 127 int)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-list-list vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-list
                  (n int)
                  (seq (list 127 int)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-
-   (filter is-some-
-    (map element-at-
-     (repeat7b-list (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-
+     (filter is-some-
+      (map element-at-
+       (repeat7b-list
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-private (assert-
                  (invariant bool)
@@ -149,6 +155,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-list1
+                 (nd int)
+                 (vd (list 127 uint)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-list-list1 vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer1
                  (n int)
                  (acc {a: (list 128 (list 127 uint)), r: (list 127 (list 127 uint))}))
@@ -168,10 +181,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record29 acc))
-    (merge record29
-     {a: (get a record29),
-      r: (get r record29)})))))
+   (let ((record71 acc))
+    (merge record71
+     {a: (get a record71),
+      r: (get r record71)})))))
 
 (define-private (repeater-list-list1
                  (v (list 127 uint))
@@ -181,26 +194,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-list1
-                 (nd int)
-                 (vd (list 127 uint)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-list-list1 vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-list1
                  (n int)
                  (seq (list 127 uint)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-1-
-   (filter is-some-1-
-    (map element-at-1-
-     (repeat7b-list1 (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-1-
+     (filter is-some-1-
+      (map element-at-1-
+       (repeat7b-list1
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-read-only (drop-uint
                    (n int)
@@ -224,6 +234,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-list2
+                 (nd int)
+                 (vd (list 127 bool)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-list-list2 vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer2
                  (n int)
                  (acc {a: (list 128 (list 127 bool)), r: (list 127 (list 127 bool))}))
@@ -243,10 +260,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record44 acc))
-    (merge record44
-     {a: (get a record44),
-      r: (get r record44)})))))
+   (let ((record107 acc))
+    (merge record107
+     {a: (get a record107),
+      r: (get r record107)})))))
 
 (define-private (repeater-list-list2
                  (v (list 127 bool))
@@ -256,26 +273,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-list2
-                 (nd int)
-                 (vd (list 127 bool)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-list-list2 vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-list2
                  (n int)
                  (seq (list 127 bool)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-2-
-   (filter is-some-2-
-    (map element-at-2-
-     (repeat7b-list2 (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-2-
+     (filter is-some-2-
+      (map element-at-2-
+       (repeat7b-list2
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-read-only (drop-bool
                    (n int)
@@ -307,6 +321,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-buffer
+                 (nd int)
+                 (vd (buff 127)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-buffer-list vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer3
                  (n int)
                  (acc {a: (list 128 (buff 127)), r: (list 127 (buff 127))}))
@@ -326,10 +347,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record59 acc))
-    (merge record59
-     {a: (get a record59),
-      r: (get r record59)})))))
+   (let ((record143 acc))
+    (merge record143
+     {a: (get a record143),
+      r: (get r record143)})))))
 
 (define-private (repeater-buffer-list
                  (v (buff 127))
@@ -339,26 +360,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-buffer
-                 (nd int)
-                 (vd (buff 127)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-buffer-list vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-buffer
                  (n int)
                  (seq (buff 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-3-
-   (filter is-some-3-
-    (map element-at-3-
-     (repeat7b-buffer (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-3-
+     (filter is-some-3-
+      (map element-at-3-
+       (repeat7b-buffer
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-private (drop-cat-buffer
                  (n int)
@@ -399,6 +417,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-string
+                 (nd int)
+                 (vd (string-utf8 127)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-string-list vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer4
                  (n int)
                  (acc {a: (list 128 (string-utf8 127)), r: (list 127 (string-utf8 127))}))
@@ -418,10 +443,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record74 acc))
-    (merge record74
-     {a: (get a record74),
-      r: (get r record74)})))))
+   (let ((record179 acc))
+    (merge record179
+     {a: (get a record179),
+      r: (get r record179)})))))
 
 (define-private (repeater-string-list
                  (v (string-utf8 127))
@@ -431,26 +456,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-string
-                 (nd int)
-                 (vd (string-utf8 127)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-string-list vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-string1
                  (n int)
                  (seq (string-utf8 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-4-
-   (filter is-some-4-
-    (map element-at-4-
-     (repeat7b-string (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-4-
+     (filter is-some-4-
+      (map element-at-4-
+       (repeat7b-string
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-private (drop-cat-string
                  (n int)
@@ -491,6 +513,13 @@
   (assert- (and (<= 0 item2) (<= item2 127)) "Out of bounds: item2")
   (element-at item1 (to-uint item2))))
 
+(define-private (repeat7b-string1
+                 (nd int)
+                 (vd (string-ascii 127)))
+ (begin
+  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
+  (get r (repeater-string-list1 vd (list nd nd nd nd nd nd nd)))))
+
 (define-private (repeat-step-integer5
                  (n int)
                  (acc {a: (list 128 (string-ascii 127)), r: (list 127 (string-ascii 127))}))
@@ -510,10 +539,10 @@
            (concat r a)
            u127))
          r)})
-   (let ((record89 acc))
-    (merge record89
-     {a: (get a record89),
-      r: (get r record89)})))))
+   (let ((record215 acc))
+    (merge record215
+     {a: (get a record215),
+      r: (get r record215)})))))
 
 (define-private (repeater-string-list1
                  (v (string-ascii 127))
@@ -523,26 +552,23 @@
   {a: (list v),
    r: (list)}))
 
-(define-private (repeat7b-string1
-                 (nd int)
-                 (vd (string-ascii 127)))
- (begin
-  (assert- (and (<= 0 nd) (<= nd 127)) "Out of bounds: nd")
-  (get r (repeater-string-list1 vd (list nd nd nd nd nd nd nd)))))
-
 (define-private (drop-string2
                  (n int)
                  (seq (string-ascii 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-5-
-   (filter is-some-5-
-    (map element-at-5-
-     (repeat7b-string1 (check-type-integer (- (to-int (len seq)) n))
-      seq)
-     (range-1-integer-integer
-      (min-num-integer-integer n max-len)
-      (to-int (len seq))))))))
+  (let ((seq-len (to-int (len seq))))
+   (if (>= n seq-len)
+    (list)
+    (map unwrap-panic-5-
+     (filter is-some-5-
+      (map element-at-5-
+       (repeat7b-string1
+        (check-type-integer (- seq-len n))
+        seq)
+       (range-1-integer-integer
+        (min-num-integer-integer n max-len)
+        seq-len))))))))
 
 (define-private (drop-cat-string1
                  (n int)
@@ -559,4 +585,5 @@
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
   (drop-cat-string1 n seq)))
-  
+
+;;
