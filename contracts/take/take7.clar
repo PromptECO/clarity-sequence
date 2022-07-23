@@ -1,4 +1,6 @@
 ;; TAKE
+;;
+;; https://github.com/njordhov/clarity-sequence
 
 (define-constant max-len (- (pow 2 7) 1))
 
@@ -100,10 +102,12 @@
                  (seq (list 127 int)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-
-   (map element-at-
-    (repeat7b-list n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-
+    (map element-at-
+     (repeat7b-list n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-private (assert-
                  (invariant bool)
@@ -172,10 +176,12 @@
                  (seq (list 127 uint)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-1-
-   (map element-at-1-
-    (repeat7b-list1 n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-1-
+    (map element-at-1-
+     (repeat7b-list1 n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-read-only (take-uint
                    (n int)
@@ -239,10 +245,12 @@
                  (seq (list 127 bool)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-2-
-   (map element-at-2-
-    (repeat7b-list2 n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-2-
+    (map element-at-2-
+     (repeat7b-list2 n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-read-only (take-bool
                    (n int)
@@ -314,10 +322,12 @@
                  (seq (buff 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-3-
-   (map element-at-3-
-    (repeat7b-buffer n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-3-
+    (map element-at-3-
+     (repeat7b-buffer n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-private (take-cat-buffer
                  (n int)
@@ -398,10 +408,12 @@
                  (seq (string-utf8 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-4-
-   (map element-at-4-
-    (repeat7b-string n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-4-
+    (map element-at-4-
+     (repeat7b-string n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-private (take-cat-string
                  (n int)
@@ -482,10 +494,12 @@
                  (seq (string-ascii 127)))
  (begin
   (assert- (and (<= 0 n) (<= n 127)) "Out of bounds: n")
-  (map unwrap-panic-5-
-   (map element-at-5-
-    (repeat7b-string1 n seq)
-    (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1))))))
+  (if (<= n 0)
+   (list)
+   (map unwrap-panic-5-
+    (map element-at-5-
+     (repeat7b-string1 n seq)
+     (range-1-integer-integer 0 (- (min-num-integer-integer n max-len) 1)))))))
 
 (define-private (take-cat-string1
                  (n int)
