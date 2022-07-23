@@ -422,7 +422,7 @@ Other variations:
 (take-ascii (n int) (seq (string-ascii max-len)))
 ```
 
-Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.take7-00](https://explorer.stacks.co/txid/0xc5069ae2d0ad0fd895d9fec70b80e1216b1ba2c27dd86c33f3a8b541f3eb72a4?chain=testnet)
+Testnet: [ST165C6WB01M6CYJ2ZZESYBF51KQ01SVW3P7D1KM2.take7-01](https://explorer.stacks.co/txid/0x45d37a7b3e849a384a43d2c082c9dec2b48afc463f82399ae99e81f470cda34e?chain=testnet)
 
 ## Acknowledgements 
 
