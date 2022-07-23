@@ -1,4 +1,6 @@
 ;; TAKE
+;;
+;; https://github.com/njordhov/clarity-sequence
 
 (import {repeat: repeat-
          range: range-})
@@ -8,10 +10,12 @@
 (define-type-alias Len (Int 0 max-len))
 
 (define (take- (n Len) seq)
-  (map unwrap-panic
-    (map element-at 
-      (repeat- n seq)
-      (range- 0 (- (min n max-len) 1)))))
+  (if (<= n 0)
+    (list)
+    (map unwrap-panic
+      (map element-at 
+        (repeat- n seq)
+        (range- 0 (- (min n max-len) 1))))))
 
 (define-read-only (take 
                     (n Len) 
@@ -21,6 +25,10 @@
 (test=
   (take 3 (list 1 2 3 4 5 6))
   (list 1 2 3))
+
+(test= 
+  (take 0 (list 1 2 3 4 5 6))
+  (list))
   
 (define-read-only (take-uint
                     (n Len) 
