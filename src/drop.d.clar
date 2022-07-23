@@ -1,4 +1,6 @@
 ;; DROP
+;;
+;; https://github.com/njordhov/clarity-sequence
 
 (import {repeat: repeat-
          range: range-})
@@ -8,14 +10,18 @@
 (define-type-alias Len (Int 0 max-len))
 
 (define (drop- (n Len) seq)
-  (map unwrap-panic
-    (filter is-some
-      (map element-at 
-        (repeat- (as Len (- (as Len (len seq)) n))
-                 seq)
-        (range- 
-          (min n max-len)
-          (as Len (len seq)))))))
+  (let ((seq-len (as Len (len seq))))
+    (if (>= n seq-len)
+      (list)
+      (map unwrap-panic
+        (filter is-some
+          (map element-at 
+            (repeat- 
+              (as Len (- seq-len n))
+              seq)
+            (range- 
+              (min n max-len)
+              seq-len)))))))
 
 (define-read-only (drop 
                     (n Len) 
@@ -67,3 +73,5 @@
 (test=
   (drop-ascii 2 "abcdef")
   "cdef")
+
+;;
