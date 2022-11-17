@@ -6,9 +6,9 @@
 
 (define (distinct-redux item result)
   (as result
-    (match (index-of result item)
-      ix result
-      (append result item))))
+    (if (is-none (index-of result item))
+      (append result item)
+      result)))
 
 (define (distinct- seq)
   (fold distinct-redux
