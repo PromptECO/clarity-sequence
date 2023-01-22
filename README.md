@@ -1,6 +1,6 @@
 # CLARITY-SEQUENCE
 
-An experimental sequence library for Clarity.
+An sequence library for Clarity.
 
 The Clarity files in `contracts` implements variations of a function for a specific sequence size.
 As Clarity is strictly typed, the library provides function variations supporting different datatypes.
